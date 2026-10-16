@@ -88,3 +88,21 @@ dialog::backdrop{background:#30281f80}
 dialog.bio-card .bio-role,dialog.bio-card .bio-focus,dialog.bio-card .bio-text{color:#111}
 .close{background:#faf0e6;color:#111;border:1px solid #c5b8a9}
 @media(max-width:760px){.header nav{background:#fff;border-color:var(--line);box-shadow:0 20px 50px #30281f25}.hero-visual{opacity:.7}}
+
+/* Keep the complete DNA sculpture above the hero divider. */
+.hero{min-height:0}
+.hero-inner{isolation:isolate}
+.hero-visual{inset:20px -6% 90px 48%;z-index:0;overflow:hidden;pointer-events:none}
+.hero-visual canvas{display:block}
+.hero-inner>.eyebrow,.hero-inner>h1,.hero-inner>.hero-copy,.hero-inner>.actions,.hero-inner>.hero-bottom{position:relative;z-index:1}
+@media(max-width:1100px) and (min-width:761px){.hero-visual{left:44%;opacity:.7}}
+@media(max-width:760px){
+ .hero-inner{display:flex;flex-direction:column;padding-top:42px;padding-bottom:24px}
+ .hero h1{font-size:clamp(38px,9.2vw,65px)}
+ .hero-copy{max-width:100%}
+ .hero-visual{position:relative;inset:auto;flex:none;width:100%;max-width:440px;height:clamp(260px,75vw,360px);margin:24px auto 12px;opacity:1}
+ .hero .actions{display:flex;flex-direction:column;align-items:stretch;gap:16px;margin-top:16px;width:100%}
+ .hero .actions .button{justify-content:space-between;min-height:54px}
+ .hero .actions .text-link{align-self:center;display:flex;align-items:center;min-height:48px}
+ .hero-bottom{margin-top:32px;padding-top:18px}
+}
