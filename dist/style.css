@@ -155,3 +155,16 @@ dialog.bio-card .bio-role,dialog.bio-card .bio-focus,dialog.bio-card .bio-text{c
  .header #navigation .nav-links a{font-size:clamp(27px,7.5vw,38px);padding:13px 0}
  .nav-feature{display:none}
 }
+
+/* Consistent desktop hamburger, refined logo and larger hero artwork. */
+.header .brand img{width:130px;height:95px}
+.hero-visual canvas{transform:scale(1.08);transform-origin:center}
+@media(min-width:761px){
+ .header .menu-toggle{display:flex}
+ .header #navigation:not(.open){display:none}
+ .header #navigation.open{display:grid;grid-template-columns:1.1fr 1fr}
+}
+@media(max-width:760px){
+ .header .brand img{width:110px;height:81px}
+ .hero-visual{height:clamp(280px,80vw,380px)}
+}
