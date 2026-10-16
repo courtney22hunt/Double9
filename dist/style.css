@@ -34,3 +34,31 @@ dialog.bio-card .bio-focus{font-size:17px;font-weight:600;color:var(--ink);line-
 dialog.bio-card .bio-text{font-size:16px;line-height:1.85;color:#d0d9cc}
 dialog.bio-card .close{top:10px;right:10px}
 @media(max-width:600px){dialog.bio-card{padding:28px 24px}dialog.bio-card[open]{grid-template-columns:1fr;gap:22px}dialog.bio-card #lightbox-image{max-height:32vh;width:auto;max-width:100%;margin-inline:auto}.bio-card-body{padding:0}dialog.bio-card h2{font-size:27px}dialog.bio-card .bio-text{font-size:15px}}
+
+/* Sticky navigation, transparent artwork, circular portraits and contact form. */
+html{scroll-padding-top:155px}
+.header{position:sticky;top:0;z-index:50;background:rgba(7,19,15,.97);box-shadow:0 0 0 100vmax rgba(7,19,15,.97);clip-path:inset(0 -100vmax -1px)}
+.header:has(nav.open){clip-path:inset(0 -100vmax -450px)}
+.header nav{gap:22px}
+.header nav a{white-space:nowrap}
+.hero{margin-top:0;padding-top:0;min-height:650px}
+.hero-visual{top:0}
+.hero-inner{padding-top:85px}
+.orbit-art{width:min(220px,100%);height:180px;margin:32px auto;isolation:isolate}
+.rotating-logo{max-width:220px;max-height:170px;object-fit:contain;filter:none;mix-blend-mode:normal;animation-duration:24s}
+.brand img{filter:none;mix-blend-mode:normal}
+.team-preview-grid .portrait,.team-page .profile .portrait{border-radius:50%;aspect-ratio:1;display:block;background:transparent}
+.team-preview-grid .portrait img,.team-page .profile .portrait img{aspect-ratio:1;width:100%;height:100%;object-fit:cover;object-position:center;filter:none}
+.partner-heading{display:flex;align-items:center;gap:28px;flex-wrap:wrap;margin-bottom:25px}
+.partner-heading h2{margin:0}
+.partner-heading img{width:120px;height:90px;object-fit:contain}
+.contact-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;padding-block:70px 100px}
+.contact-layout>div p{margin-top:24px}
+form label{display:block;font-size:15px;color:var(--ink);margin-bottom:22px}
+form label span{color:var(--muted)}
+input,select,textarea{display:block;width:100%;margin-top:9px;border:1px solid #60745c;background:#102018;color:var(--ink);font:inherit;padding:13px 15px;border-radius:6px}
+textarea{resize:vertical}input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--sage);outline-offset:3px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+#form-status{font-size:14px;margin:0 0 22px}
+@media(max-width:900px){.header nav{gap:14px}.brand{width:190px}.contact-layout{grid-template-columns:1fr;gap:35px}}
+@media(max-width:760px){html{scroll-padding-top:130px}.header nav{left:0;right:0;top:105px}.hero{margin-top:0;padding-top:0}.hero-visual{inset:230px -20% -75px 0}.hero-inner{padding-top:50px}.orbit-art{height:170px;width:210px;margin:25px auto}.form-grid{grid-template-columns:1fr;gap:0}.contact-layout{padding-block:45px 65px}.partner-heading{gap:18px}.partner-heading img{width:95px;height:72px}}
