@@ -4,3 +4,20 @@
 @media(max-width:760px){body{font-size:17px}.wrap{width:88%}.header{height:120px}.brand{align-items:flex-start;width:auto}.brand img{margin-left:42px;width:96px;height:70px}.brand span{font-size:8px}.menu-toggle{display:block;border:1px solid #60745c;background:#112117;padding:8px 12px;border-radius:5px;font-size:14px}.menu-toggle span{margin-left:8px}.header nav{display:none;position:absolute;top:105px;left:0;right:0;background:#112117;padding:22px;border:1px solid var(--line);border-radius:8px;box-shadow:0 20px 50px #0007}.header nav.open{display:flex;flex-direction:column;align-items:stretch;gap:12px}.hero{margin-top:-120px;padding-top:120px;min-height:800px}.hero-inner{padding-top:55px}.hero h1{font-size:clamp(44px,9.8vw,65px)}.hero .eyebrow{font-size:10px;letter-spacing:.16em}.hero-copy{font-size:18px;max-width:95%;color:#e0e6dc}.hero-visual{inset:330px -20% -75px 0;opacity:.5;z-index:0}.hero-bottom{margin-top:220px;gap:12px}.hero-bottom a{font-size:9px}.actions{gap:22px}.intro-section{padding-block:65px}.intro-grid,.people-teaser,.editorial{grid-template-columns:1fr;gap:35px}.intro-grid h2{font-size:40px}.lead{font-size:20px}.focus-band{padding:65px 0}.focus-grid{grid-template-columns:1fr;gap:35px;margin-top:35px}.focus-grid h3{margin-top:18px}.people-teaser{padding-block:65px;gap:55px}.portrait-stack{max-width:450px;margin-bottom:30px}.page-intro{padding:40px 0 50px}.page-intro h1{font-size:44px}.editorial{padding-block:45px 65px}.orbit-art{display:none}.editorial aside h2{font-size:29px}.prose p{font-size:17px}.prose h2{font-size:27px}.pathway{grid-template-columns:25px 1fr;gap:16px}.pathway p{grid-column:2}.pathway h3{font-size:23px}.profiles{grid-template-columns:1fr;padding-top:25px;gap:35px}.profile{grid-template-columns:125px 1fr;gap:22px}.profile h2{font-size:25px}.profile p:last-child{font-size:15px}.partner-intro{padding-block:40px}.footer-top{flex-direction:column}.footer-top h2{font-size:32px}.footer-top nav{grid-template-columns:1fr 1fr;gap:15px}.footer-bottom{flex-wrap:wrap;font-size:10px}.footer-bottom span:nth-child(2){display:none}}
 @media(max-width:380px){.profile{grid-template-columns:100px 1fr;gap:15px}.profile h2{font-size:22px}.hero h1{font-size:40px}.brand span{font-size:7px}.brand img{margin-left:30px}.menu-toggle{font-size:12px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+
+/* Four-person homepage introduction and simplified imagery. */
+.people-teaser{grid-template-columns:1fr 1.15fr;gap:55px}
+.team-preview-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;align-items:start}
+.team-preview-grid figure{margin:0;min-width:0}
+.team-preview-grid .portrait{border-radius:60px 60px 5px 5px}
+.team-preview-grid img{aspect-ratio:210/276;object-fit:cover;width:100%;height:auto}
+.team-preview-grid figcaption{margin-top:12px;text-align:center;font-size:13px;color:var(--ink);line-height:1.4}
+.pathway{grid-template-columns:1fr 1.2fr}
+.orbit-art{display:flex;align-items:center;justify-content:center;width:min(300px,100%);height:260px;perspective:850px}
+.rotating-logo{width:100%;height:auto;filter:invert(1) grayscale(1);mix-blend-mode:screen;animation:logo-turn 18s linear infinite;transform-style:preserve-3d}
+.logo-motion{position:absolute;bottom:0;right:0;border:1px solid #54664f;border-radius:50%;width:40px;height:40px;background:#102017;font-size:14px}
+.hero-bottom #motion{width:40px;height:40px;font-size:16px;padding:0;border-radius:50%}
+@keyframes logo-turn{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}
+@media(max-width:1100px){.people-teaser{grid-template-columns:1fr;gap:40px}.team-preview-grid{max-width:720px;width:100%;margin-inline:auto}}
+@media(max-width:760px){.team-preview-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:25px 20px;max-width:450px}.team-preview-grid figcaption{font-size:15px}.pathway{grid-template-columns:1fr;gap:14px}.pathway p{grid-column:auto}.orbit-art{display:flex;margin:35px auto 0;height:230px;max-width:270px}}
+@media(prefers-reduced-motion:reduce){.rotating-logo{animation:none!important}}
