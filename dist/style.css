@@ -21,3 +21,16 @@
 @media(max-width:1100px){.people-teaser{grid-template-columns:1fr;gap:40px}.team-preview-grid{max-width:720px;width:100%;margin-inline:auto}}
 @media(max-width:760px){.team-preview-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:25px 20px;max-width:450px}.team-preview-grid figcaption{font-size:15px}.pathway{grid-template-columns:1fr;gap:14px}.pathway p{grid-column:auto}.orbit-art{display:flex;margin:35px auto 0;height:230px;max-width:270px}}
 @media(prefers-reduced-motion:reduce){.rotating-logo{animation:none!important}}
+
+/* Portraits open complete, keyboard-accessible biography cards. */
+dialog.bio-card{width:min(820px,92vw);max-width:820px;padding:35px;max-height:90vh;border-radius:16px}
+dialog.bio-card[open]{display:grid;grid-template-columns:minmax(160px,.7fr) minmax(0,1fr);gap:30px;align-items:start}
+dialog.bio-card #lightbox-image{width:100%;height:auto;max-height:65vh;object-fit:contain;margin:0;border-radius:8px}
+.bio-card-body{padding-top:10px}
+dialog.bio-card h2{text-align:left;font-size:32px;line-height:1.15;padding-right:15px}
+dialog.bio-card p{text-align:left;margin-top:16px}
+dialog.bio-card .bio-role{color:var(--sage);font-size:14px;margin-top:12px}
+dialog.bio-card .bio-focus{font-size:17px;font-weight:600;color:var(--ink);line-height:1.5;margin-top:24px}
+dialog.bio-card .bio-text{font-size:16px;line-height:1.85;color:#d0d9cc}
+dialog.bio-card .close{top:10px;right:10px}
+@media(max-width:600px){dialog.bio-card{padding:28px 24px}dialog.bio-card[open]{grid-template-columns:1fr;gap:22px}dialog.bio-card #lightbox-image{max-height:32vh;width:auto;max-width:100%;margin-inline:auto}.bio-card-body{padding:0}dialog.bio-card h2{font-size:27px}dialog.bio-card .bio-text{font-size:15px}}
