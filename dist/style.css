@@ -168,3 +168,6 @@ dialog.bio-card .bio-role,dialog.bio-card .bio-focus,dialog.bio-card .bio-text{c
  .header .brand img{width:110px;height:81px}
  .hero-visual{height:clamp(280px,80vw,380px)}
 }
+
+/* Black and gray DNA hero sculpture. */
+.hero-visual canvas{filter:grayscale(1) contrast(1.25) brightness(.72)}
