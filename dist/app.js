@@ -1,8 +1,36 @@
 'use strict';
 document.querySelectorAll('[data-asset]').forEach(img=>{img.src=window.D9_ASSETS[img.dataset.asset];});
 const menu=document.querySelector('.menu-toggle'),nav=document.querySelector('#navigation');
-menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));nav.classList.toggle('open',open);});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){nav.classList.remove('open');menu.setAttribute('aria-expanded','false');}});
+// Full-screen navigation, with keyboard focus contained while open.
+const header=document.querySelector('.header');
+const navLinks=document.createElement('div');navLinks.className='nav-links';
+while(nav.firstChild)navLinks.append(nav.firstChild);
+nav.append(navLinks);
+const feature=document.createElement('aside');feature.className='nav-feature';
+feature.innerHTML='<p class="eyebrow">THE DOUBLE9 VISION</p><img alt="" width="260" height="190"><h2>A bioscience future,<br>built with purpose.</h2><p>Jamaican roots. Global possibility.</p><a class="text-link" href="vision.html">Explore our vision ↗</a>';
+feature.querySelector('img').src=window.D9_ASSETS.logo;nav.append(feature);
+menu.innerHTML='<span class="menu-label">Menu</span><span class="hamburger" aria-hidden="true"><i></i><i></i><i></i></span>';
+menu.setAttribute('aria-label','Open navigation menu');
+let menuOpen=false,previousOverflow='';
+const pageContent=[document.querySelector('main'),document.querySelector('footer')].filter(Boolean);
+function setMenu(open,restoreFocus=true){
+ menuOpen=open;menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');
+ menu.querySelector('.menu-label').textContent=open?'Close':'Menu';nav.classList.toggle('open',open);
+ if(open){previousOverflow=document.body.style.overflow;document.body.style.overflow='hidden';pageContent.forEach(el=>el.inert=true);navLinks.querySelector('a').focus();}
+ else{document.body.style.overflow=previousOverflow;pageContent.forEach(el=>el.inert=false);if(restoreFocus)menu.focus();}
+}
+menu.addEventListener('click',()=>setMenu(!menuOpen));
+nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>setMenu(false,false)));
+document.addEventListener('keydown',e=>{
+ if(!menuOpen)return;
+ if(e.key==='Escape'){e.preventDefault();setMenu(false);return;}
+ if(e.key==='Tab'){
+  const focusable=[...header.querySelectorAll('a[href],button')].filter(el=>el.getClientRects().length);
+  const first=focusable[0],last=focusable[focusable.length-1];
+  if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+  else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+ }
+});
 const people={"ricardo": {"name": "Ricardo Hunt", "role": "Managing Partner", "focus": "Finance & global leadership", "bio": "Ricardo brings more than 35 years of Wall Street experience, with a focus on sustainable growth and leadership of cross-functional teams in domestic and international markets. His entrepreneurial perspective includes building teams and driving operational excellence in emerging and foreign markets."}, "brian": {"name": "Brian Gibbs", "role": "Managing Partner", "focus": "Financial strategy & business development", "bio": "Brian brings more than 25 years of diversified financial services experience. His expertise spans financial management, strategic business development, and process improvement, supported by a commitment to strong client relationships and service."}, "courtney": {"name": "Courtney Hunt", "role": "Managing Partner", "focus": "Engineering & infrastructure", "bio": "Courtney is an engineer and experienced project manager whose work spans right-of-way oversight, planning, design, buildout, maintenance, and enhancements for major infrastructure projects. His experience includes licensing, leasing, permits, and the operation of large, scalable facilities."}, "douglas": {"name": "Douglas Patrick", "role": "Managing Partner", "focus": "Sales, operations & regulatory experience", "bio": "Douglas is a former sales executive with leadership experience across 10 New Jersey retail locations. His background combines sales, marketing, and product development with financial services experience as a Bank Examiner and Principal Examiner for two major US regulatory agencies."}, "kurt": {"name": "Kurt Parra", "role": "Principal \u00b7 Managing Partner", "focus": "Business affairs & supply chain", "bio": "Kurt oversees business affairs and brings more than 12 years of experience as a Chief Financial Officer and Chief Supply Chain Officer for private equity-backed companies. He entered the cannabis industry in 2014 through an investment in a Los Angeles cultivation business and its subsequent successful exit."}, "markus": {"name": "Markus Kashinsky", "role": "Principal \u00b7 Managing Member", "focus": "Controlled-environment agriculture", "bio": "Markus has worked in controlled-environment agriculture since 2012. His experience includes leading the design, development, and integration of more than 300 cannabis cultivation and manufacturing facilities, with specialized engineering designs implemented in mechanical systems nationwide."}, "david": {"name": "David Holmes", "role": "Founding Member \u00b7 Cultivation", "focus": "Cultivation expertise", "bio": "David brings more than 20 years of cannabis cultivation experience, including responsibility for thousands of harvests across eight facilities in multiple states. In 2019, he received the Lifetime Cultivation Achievement Award at the Global Cannabis Business Awards."}};
 const dialog=document.querySelector('#lightbox');let opener;
 dialog.classList.add('bio-card');
