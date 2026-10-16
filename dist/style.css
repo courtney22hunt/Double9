@@ -62,3 +62,29 @@ textarea{resize:vertical}input:focus-visible,select:focus-visible,textarea:focus
 #form-status{font-size:14px;margin:0 0 22px}
 @media(max-width:900px){.header nav{gap:14px}.brand{width:190px}.contact-layout{grid-template-columns:1fr;gap:35px}}
 @media(max-width:760px){html{scroll-padding-top:130px}.header nav{left:0;right:0;top:105px}.hero{margin-top:0;padding-top:0}.hero-visual{inset:230px -20% -75px 0}.hero-inner{padding-top:50px}.orbit-art{height:170px;width:210px;margin:25px auto}.form-grid{grid-template-columns:1fr;gap:0}.contact-layout{padding-block:45px 65px}.partner-heading{gap:18px}.partner-heading img{width:95px;height:72px}}
+
+/* White and linen theme across every page. */
+:root{color-scheme:light;--bg:#ffffff;--panel:#faf0e6;--ink:#111111;--muted:#222222;--sage:#111111;--line:#d9cfc3}
+body{background:var(--bg);color:var(--ink)}
+p,em,.lead,.eyebrow,.section-number,.hero-copy,.hero .hero-copy,.footer-bottom,.profile h3,.profile-copy .eyebrow,form label,form label span{color:var(--ink)}
+.header{background:rgba(255,255,255,.98);box-shadow:0 0 0 100vmax rgba(255,255,255,.98);border-bottom:1px solid var(--line)}
+.brand span,.header nav a,.header nav a:hover,.header nav a[aria-current]{color:#111}
+.brand img,.rotating-logo{filter:brightness(0);mix-blend-mode:normal}
+.hero{background:radial-gradient(ellipse at 80% 45%,#e4dacb 0,transparent 58%),radial-gradient(#76634e24 1px,transparent 1.5px),#faf0e6;background-size:auto,28px 28px,auto}
+.hero-visual{opacity:1}
+.focus-band,footer{background:#faf0e6;border-color:var(--line)}
+.focus-grid article{border-color:#bcb0a1}
+.header-cta,.button,.primary{color:#111;background:#faf0e6;border-color:#a79b8c}
+.header-cta:hover,.button:hover,.primary:hover{color:#111;background:#eadccc;border-color:#716354}
+.text-link{color:#111;border-color:#716354}.text-link:hover{color:#111;background:#faf0e6}
+.menu-toggle{color:#111;background:#faf0e6;border-color:#bcb0a1}
+.portrait{background:#f2e9df}
+input,select,textarea{color:#111;background:#fff;border-color:#a79b8c}
+input::placeholder,textarea::placeholder{color:#59524b;opacity:1}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline-color:#111}
+.skip{background:#faf0e6;color:#111;border:1px solid #111}
+dialog,dialog.bio-card{background:#fff;color:#111;border-color:#c5b8a9;box-shadow:0 20px 80px #30281f40}
+dialog::backdrop{background:#30281f80}
+dialog.bio-card .bio-role,dialog.bio-card .bio-focus,dialog.bio-card .bio-text{color:#111}
+.close{background:#faf0e6;color:#111;border:1px solid #c5b8a9}
+@media(max-width:760px){.header nav{background:#fff;border-color:var(--line);box-shadow:0 20px 50px #30281f25}.hero-visual{opacity:.7}}
